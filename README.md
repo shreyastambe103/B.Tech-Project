@@ -27,15 +27,12 @@ This repository contains an Express backend (server/) and a Vite + React fronten
 - Upload and analyze microscopic images
 - View results and confidence scores
 - Persist analysis history
-- Dev server integrates Vite middleware so frontend HMR works with the backend
 
 ## Tech stack
 
 - Frontend: React + Vite, TailwindCSS, shadcn/ui
 - Backend: Node.js + Express
 - Database: MongoDB (Mongoose)
-- Image processing: Sharp
-- ML: TensorFlow.js
 
 ## Prerequisites
 
@@ -107,12 +104,6 @@ Check the `docker-compose.yml` for service names and ports.
 - `npm run check` — run TypeScript compiler checks
 - `npm run db:push` — run drizzle-kit push (if using drizzle migrations)
 
-## Troubleshooting
-
-- MongoDB connection errors: ensure `MONGODB_URI` is set and the server can reach the DB. Check logs printed by `server/config/db.ts`.
-- Port in use: change `PORT` env var or stop the process using the port.
-- sharp build errors on macOS: try `brew install vips` and then reinstall node modules.
-- If you see HMR or client issues in dev, make sure `npm run dev` is running the server (it runs `tsx server/index.ts`) and the server is in development mode so Vite middleware is mounted.
 
 ## API (examples)
 
@@ -124,16 +115,3 @@ The backend defines routes under `/api` (see `server/routes.ts`). Typical endpoi
 - `GET /api/analysis/:id` — get one analysis result
 
 Refer to `server/routes.ts` for the most up-to-date endpoints and payload shapes.
-
-## Contributing
-
-1. Fork the repo
-2. Create feature branch
-3. Run tests/lint (if added)
-4. Open a PR
-
-## License
-
-MIT
-
-If you'd like, I can also add a small `CONTRIBUTING.md` and a `.env.example` file to make first-run setup even easier.
