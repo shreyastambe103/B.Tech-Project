@@ -24,7 +24,7 @@ cd <repository-name>
 
 ## PathoScanAI — ESKAPE Analysis Application
 
-PathoScanAI is a full-stack web application for analyzing microscopic urine sample images and classifying possible ESKAPE-category bacteria using TensorFlow.js and image processing.
+PathoScanAI is a full-stack web application for analyzing microscopic urine sample images and classifying possible ESKAPE-category bacteria using a deep-learning model.
 
 This repository contains an Express backend (server/) and a Vite + React frontend (client/) wired together so the single `npm run dev` command runs the server and serves the client in development.
 
