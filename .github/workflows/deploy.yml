@@ -1,0 +1,52 @@
+name: Build MERN App for Render Auto-Deploy
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js for Client
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
+        cache: 'npm'
+
+    - name: Install Client Dependencies
+      working-directory: ./client
+      run: npm ci
+
+    - name: Build Client React App
+      working-directory: ./client
+      run: npm run build
+
+    - name: Setup Node.js for Server
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
+        cache: 'npm'
+
+    - name: Install Server Dependencies
+      working-directory: ./server
+      run: npm ci
+
+    - name: Build Server (if needed)
+      working-directory: ./server
+      run: npm run build
+
+    # Optional: Archive build artifacts for reference
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: build-artifacts
+        path: |
+          client/build
+          server/dist
+
