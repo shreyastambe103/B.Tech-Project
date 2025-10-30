@@ -2,6 +2,12 @@
 
 A web application for analyzing microscopic urine sample images to detect ESKAPE category bacteria.
 
+#Created By:
+Siddharth Sandeep - 22070122210
+Pranavi Singh - 22070122211
+Shreyas Tambe - 22070122221
+Vedant Ambadkar - 22070122247
+
 ## Prerequisites
 
 - Node.js (v18 or higher)
